@@ -1,0 +1,19 @@
+*.ini
+*.db
+*.csv
+*.txt
+*.pyc
+*.xlsx
+*.ppk
+*.DS_Store
+.idea/
+.python-version
+.cache
+config.ini
+__pycache__
+Hop Eligible files/
+env/
+airflow/
+
+dag_for_test.py
+hello.py
