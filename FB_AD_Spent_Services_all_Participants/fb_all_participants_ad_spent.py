@@ -180,4 +180,8 @@ try:
             except Exception as e:
                 print(str(e))
 except Exception as e:
+    try:
+        myteamsalert("Alert ! Please Check Something Seems Wrong With All Participant Ads Spend Service"+" "+ "Exception : "+str(e))
+    except:
+        print("Error While Sending Teams Alert")
     print(e)

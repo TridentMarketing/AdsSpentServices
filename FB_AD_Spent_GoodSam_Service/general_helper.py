@@ -5,6 +5,7 @@ from datetime import datetime
 from requests import get,post
 from dateutil import parser
 import json
+import pymsteams
 
 from load_env_var import *
 from connection import * 
@@ -26,6 +27,18 @@ tagsCollection=tradbLive_conn["tags"]
 adsSpentCollection = tradbDev_conn["spentData"]
 campaignsCollection = tradbLive_conn["campaigns"]
 resortCollection = tradbLive_conn["resorts"]
+
+try:
+    def myteamsalert(msg):
+        connector_url = os.getenv("TEAMS_CONNECTOR")
+        # You must create the connectorcard object with the Microsoft Webhook URL
+        myTeamsMessage = pymsteams.connectorcard(connector_url)
+        # Add text to the message.
+        myTeamsMessage.text(msg)
+    #     send the message.
+        myTeamsMessage.send()
+except:
+    print("Error While Calling MSTeams Connector")
       
 def encode_agent_name(name):
     try:

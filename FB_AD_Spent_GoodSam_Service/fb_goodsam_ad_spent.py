@@ -137,4 +137,8 @@ try:
     dw_conn.close()
     ftp.quit()
 except Exception as e:
+    try:
+        myteamsalert("Alert ! Please Check Something Seems Wrong With Good-Sam Ads Spend Service"+" "+ "Exception : "+str(e))
+    except:
+        print("Error While Sending Teams Alert")
     print(e)
